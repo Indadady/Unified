@@ -5,20 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOURMAKER Unified Portal</title>
     
-    <!-- ★ Open Graph (카카오톡/웹 링크 공유 시 썸네일 및 미리보기 설정) ★ -->
     <meta property="og:title" content="TOURMAKER Unified Portal">
     <meta property="og:description" content="영업 제안부터 행사 정산까지, 투어메이커만의 독보적인 4대 핵심 업무 파이프라인">
     <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhPxG_ONo2BdFAGDNnn-pHIGJTrAq374YbqgwTTlyIZTP22kOWTDD_AyjKDNFPhsHg5t1Iq6zV0dL_NZIj4o97Kd0eWJYCv-NHhtIqme-Mp3htGhAdkqVv5NRU3Jc9TbdbvvVKrPslObA1oNABpgl12QtGwirC2QM5lcPCVoWm8pIbeKuZBbeDHAvpbKEQ">
     <meta property="og:type" content="website">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- 투어메이커 GA4 측정 ID 반영 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLH9GD9SVR"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -28,9 +23,16 @@
     </script>
 
     <style>
-        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; color: #1e293b; margin: 0; }
-        .font-montserrat { font-family: 'Montserrat', sans-serif; }
-        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            margin: 0;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
         .portal-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid #e2e8f0;
@@ -40,21 +42,19 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             border-color: #94a3b8;
         }
-        
+
         .icon-wrap {
             transition: all 0.3s ease;
         }
         .portal-card:hover .icon-wrap {
             transform: scale(1.1);
         }
-        
-        /* 백그라운드 패턴 (은은한 점자 무늬) */
+
         .bg-pattern {
             background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
             background-size: 24px 24px;
         }
 
-        /* 펄스 애니메이션 (빌더 강조용) */
         @keyframes pulse-ring {
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(147, 51, 234, 0); }
@@ -64,14 +64,12 @@
             animation: pulse-ring 2s infinite;
         }
 
-        /* UNIFIED 텍스트 그라데이션 효과 */
         .text-gradient {
             background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* 로그인 박스 스타일 */
         .login-box {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -81,9 +79,6 @@
 </head>
 <body class="min-h-screen bg-pattern text-slate-800">
 
-    <!-- ========================================== -->
-    <!-- ★ 1. 보안 로그인 (잠금) 화면 ★ -->
-    <!-- ========================================== -->
     <div id="login-screen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300">
         <div class="login-box w-full max-w-md rounded-2xl p-8 text-center border border-white/20">
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker Logo" class="h-10 mx-auto mb-6">
@@ -104,13 +99,7 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- ★ 2. 메인 포털 화면 (초기엔 숨김 처리) ★ -->
-    <!-- ========================================== -->
     <div id="main-portal" class="hidden flex-col min-h-screen">
-        
-        <!-- 상단 헤더 -->
-        <!-- 넓이를 max-w-7xl로 확장하여 사이드바 공간 확보 -->
         <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
                 <div class="flex items-center gap-4">
@@ -119,7 +108,6 @@
                     <h1 class="text-lg font-black tracking-widest text-slate-800 font-montserrat">UNIFIED <span class="font-normal text-slate-500">PORTAL</span></h1>
                 </div>
                 
-                <!-- ★ 사용자 프로필 전환 드롭다운 메뉴 ★ -->
                 <div class="relative" id="user-menu-container">
                     <button id="user-menu-btn" class="flex items-center gap-3 text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors focus:outline-none py-2 px-3 rounded-lg hover:bg-slate-50">
                         <i class="fa-solid fa-user-tie text-blue-600"></i>
@@ -132,8 +120,6 @@
                         <button onclick="setUser('lee')" class="w-full text-left px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 font-bold transition-colors"><i class="fa-solid fa-check text-blue-600 mr-2 opacity-0" id="check-lee"></i>이재명 대표</button>
                         <button onclick="setUser('heo')" class="w-full text-left px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 font-bold transition-colors"><i class="fa-solid fa-check text-blue-600 mr-2 opacity-0" id="check-heo"></i>허나연 대표</button>
                         <button onclick="setUser('jo')" class="w-full text-left px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 font-bold transition-colors"><i class="fa-solid fa-check text-blue-600 mr-2 opacity-0" id="check-jo"></i>조 혁 이사</button>
-                        
-                        <!-- 로그아웃 버튼 추가 -->
                         <div class="border-t border-slate-100 mt-1">
                             <button onclick="logout()" class="w-full text-left px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 font-bold transition-colors"><i class="fa-solid fa-arrow-right-from-bracket mr-2"></i>시스템 잠금</button>
                         </div>
@@ -142,21 +128,14 @@
             </div>
         </header>
 
-        <!-- 메인 컨텐츠 영역 (max-w-7xl로 확장) -->
         <main class="flex-1 max-w-7xl mx-auto px-4 py-12 w-full">
-            
             <div class="mb-12 text-center">
                 <h2 class="text-3xl md:text-4xl font-black text-slate-800 tracking-tight mb-3 font-montserrat uppercase">TOURMAKER <span class="text-gradient">UNIFIED PIPELINE</span></h2>
                 <p class="text-slate-500 font-medium">영업 제안부터 행사 정산까지, 투어메이커만의 독보적인 핵심 업무 모듈입니다.</p>
             </div>
 
-            <!-- ★ 메인 레이아웃 분리 (좌측: 4대 파이프라인 / 우측: 빠른 업무 사이드바) ★ -->
             <div class="flex flex-col lg:flex-row gap-8">
-                
-                <!-- ================== 좌측: 메인 4대 모듈 ================== -->
                 <div class="lg:w-3/4 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    
-                    <!-- 모듈 1. 스마트 가이드북 빌더 -->
                     <a href="https://gemini.google.com/app" target="_blank" class="portal-card bg-white rounded-2xl p-8 flex flex-col group cursor-pointer relative overflow-hidden border-2 border-purple-200">
                         <div class="absolute top-4 right-4 pulse-badge bg-purple-600 text-white text-[10px] font-black px-3 py-1 rounded-full tracking-widest font-montserrat">
                             NEXT PROJECT
@@ -175,7 +154,6 @@
                         </div>
                     </a>
 
-                    <!-- 모듈 2. 가격 산출 및 견적 시스템 -->
                     <a href="https://indadady.github.io/Calculation_details/" target="_blank" class="portal-card bg-white rounded-2xl p-8 flex flex-col group cursor-pointer relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
                         <div class="icon-wrap w-16 h-16 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-blue-200 relative z-10">
@@ -191,7 +169,6 @@
                         </div>
                     </a>
 
-                    <!-- 모듈 3. 출발 전 제출서류 -->
                     <a href="https://indadady.github.io/Departure_Documents/?admin=true" target="_blank" class="portal-card bg-white rounded-2xl p-8 flex flex-col group cursor-pointer relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
                         <div class="icon-wrap w-16 h-16 rounded-2xl bg-orange-500 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-orange-200 relative z-10">
@@ -207,7 +184,6 @@
                         </div>
                     </a>
 
-                    <!-- 모듈 4. 행정·정산 백오피스 -->
                     <a href="https://indadady.github.io/admin/" target="_blank" class="portal-card bg-white rounded-2xl p-8 flex flex-col group cursor-pointer relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
                         <div class="icon-wrap w-16 h-16 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-emerald-200 relative z-10">
@@ -222,17 +198,14 @@
                             시스템 접속하기 <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </div>
                     </a>
-
                 </div>
 
-                <!-- ================== 우측: 빠른 업무 지원 (Quick Tools) ================== -->
                 <div class="lg:w-1/4 flex flex-col gap-4">
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest font-montserrat">Quick Tools</h3>
                         <i class="fa-solid fa-layer-group text-slate-300"></i>
                     </div>
 
-                    <!-- 1. 항공 좌석 요청서 -->
                     <a href="https://indadady.github.io/Airseat/" target="_blank" class="bg-white rounded-xl p-5 border border-slate-200 hover:border-orange-400 hover:shadow-md transition-all group cursor-pointer flex items-center gap-4 relative overflow-hidden">
                         <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center shrink-0 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
                             <i class="fa-solid fa-plane-up text-lg"></i>
@@ -247,7 +220,20 @@
                         <i class="fa-solid fa-chevron-right absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-xs"></i>
                     </a>
 
-                    <!-- 2. 항공 운임 증명서 -->
+                    <a href="https://indadady.github.io/Airseat_jinair/" target="_blank" class="bg-white rounded-xl p-5 border border-slate-200 hover:border-lime-400 hover:shadow-md transition-all group cursor-pointer flex items-center gap-4 relative overflow-hidden">
+                        <div class="w-12 h-12 rounded-xl bg-lime-50 text-lime-600 flex items-center justify-center shrink-0 group-hover:bg-lime-500 group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-plane-circle-check text-lg"></i>
+                        </div>
+                        <div class="pr-6">
+                            <h4 class="text-[15px] font-bold text-slate-800 mb-1">국내선 진에어 요청양식</h4>
+                            <p class="text-[11px] font-medium text-slate-500 leading-snug">
+                                <strong class="text-lime-700">진에어 국내선 전용 폼</strong><br>
+                                국내선 단체 좌석 요청용 진에어 전용 양식.
+                            </p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-xs"></i>
+                    </a>
+
                     <a href="https://indadady.github.io/Airfare/" target="_blank" class="bg-white rounded-xl p-5 border border-slate-200 hover:border-sky-400 hover:shadow-md transition-all group cursor-pointer flex items-center gap-4 relative overflow-hidden">
                         <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0 group-hover:bg-sky-500 group-hover:text-white transition-colors duration-300">
                             <i class="fa-solid fa-file-invoice-dollar text-lg"></i>
@@ -262,7 +248,6 @@
                         <i class="fa-solid fa-chevron-right absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-xs"></i>
                     </a>
 
-                    <!-- 3. GA4 웹사이트 통계 (★ 신규 추가 ★) -->
                     <a href="https://analytics.google.com/analytics/web/#/a378921679p517917548/realtime/overview?params=_u..nav%3Dmaui" target="_blank" class="bg-white rounded-xl p-5 border border-slate-200 hover:border-teal-400 hover:shadow-md transition-all group cursor-pointer flex items-center gap-4 relative overflow-hidden">
                         <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-500 flex items-center justify-center shrink-0 group-hover:bg-teal-500 group-hover:text-white transition-colors duration-300">
                             <i class="fa-solid fa-chart-line text-lg"></i>
@@ -277,31 +262,24 @@
                         <i class="fa-solid fa-chevron-right absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-xs"></i>
                     </a>
 
-                    <!-- 향후 추가될 도구들을 위한 점선 박스 (확장성 고려) -->
                     <button class="bg-transparent rounded-xl p-5 border-2 border-dashed border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition-all flex items-center justify-center text-slate-400 hover:text-blue-500 flex-col gap-2 h-24">
                         <i class="fa-solid fa-plus"></i>
                         <span class="text-xs font-bold tracking-wide">신규 업무 툴 추가</span>
                     </button>
                     
-                    <!-- 안내 메시지 박스 -->
                     <div class="mt-auto bg-slate-100 rounded-xl p-4 border border-slate-200">
                         <p class="text-xs text-slate-500 font-medium leading-relaxed">
                             <i class="fa-solid fa-circle-info text-blue-500 mr-1"></i>
                             메인 파이프라인 외의 개별 유틸리티 페이지들은 이곳 <strong>Quick Tools</strong> 영역에 지속적으로 추가될 예정입니다.
                         </p>
                     </div>
-
                 </div>
             </div>
-
         </main>
 
-        <!-- 하단 푸터 -->
         <footer class="bg-white border-t border-slate-200 py-8 text-center mt-auto">
             <p class="text-xs font-bold text-slate-400 mb-2 font-montserrat tracking-widest">TOURMAKER UNIFIED WORKSPACE v1.3</p>
             <p class="text-sm text-slate-500 font-medium">ⓒ 2026 Tourmaker Inc. All rights reserved.</p>
-            
-            <!-- 투어메이커 홈페이지 바로가기 (이전 요청사항 반영) -->
             <a href="http://tourmaker.kr" target="_blank" class="inline-block mt-4 px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-slate-500 hover:bg-slate-100 transition-colors">
                 <i class="fa-solid fa-globe mr-1"></i> tourmaker.kr 바로가기
             </a>
@@ -309,35 +287,26 @@
     </div>
 
     <script>
-        // ==========================================
-        // ★ 1. 보안 로그인 시스템 설정 ★
-        // ==========================================
-        // 💡 주의: 이 비밀번호를 원하는 것으로 변경하세요!
-        const PORTAL_SECRET_PASSWORD = "tourmaker2026"; 
+        const PORTAL_SECRET_PASSWORD = "tourmaker2026";
 
-        // 로그인 확인
         function checkPassword() {
             const inputPw = document.getElementById('portal-password').value;
             const errorMsg = document.getElementById('login-error');
-            
+
             if (inputPw === PORTAL_SECRET_PASSWORD) {
-                // 성공: 세션에 로그인 상태 저장 후 메인 화면 표시
                 sessionStorage.setItem('tourmaker_portal_auth', 'granted');
                 showMainPortal();
             } else {
-                // 실패: 에러 메시지 표시
                 errorMsg.classList.remove('hidden');
-                document.getElementById('portal-password').value = ''; // 입력창 비우기
+                document.getElementById('portal-password').value = '';
                 document.getElementById('portal-password').focus();
             }
         }
 
-        // 메인 화면으로 전환
         function showMainPortal() {
             const loginScreen = document.getElementById('login-screen');
             const mainPortal = document.getElementById('main-portal');
-            
-            // 페이드 아웃 효과 후 숨김
+
             loginScreen.style.opacity = '0';
             setTimeout(() => {
                 loginScreen.classList.add('hidden');
@@ -346,69 +315,57 @@
             }, 300);
         }
 
-        // 로그아웃 (시스템 잠금)
         function logout() {
             sessionStorage.removeItem('tourmaker_portal_auth');
-            location.reload(); // 페이지 새로고침하여 다시 로그인 화면으로 돌아감
+            location.reload();
         }
 
-        // 엔터키 로그인 지원
         document.getElementById('portal-password').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 checkPassword();
             }
         });
 
-
-        // ==========================================
-        // ★ 2. 사용자 프로필 관리 로직 ★
-        // ==========================================
         const users = {
             'lee': { name: '이재명', role: '대표' },
             'heo': { name: '허나연', role: '대표' },
             'jo': { name: '조혁', role: '이사' }
         };
 
-        // 로컬스토리지에 저장된 유저 불러오기 (기본값은 'lee')
         function updateGreeting() {
             const currentUserId = localStorage.getItem('tourmaker_portal_user') || 'lee';
             const user = users[currentUserId];
             const hour = new Date().getHours();
-            let timeMsg = "";
+            let timeMsg = '';
 
             if (hour >= 5 && hour < 12) {
-                timeMsg = "좋은 아침입니다!";
+                timeMsg = '좋은 아침입니다!';
             } else if (hour >= 12 && hour < 18) {
-                timeMsg = "오후 업무도 화이팅입니다!";
+                timeMsg = '오후 업무도 화이팅입니다!';
             } else if (hour >= 18 && hour < 22) {
-                timeMsg = "오늘 하루도 수고 많으셨습니다!";
+                timeMsg = '오늘 하루도 수고 많으셨습니다!';
             } else {
-                timeMsg = "밤이 늦었습니다. 푹 쉬십시오!";
+                timeMsg = '밤이 늦었습니다. 푹 쉬십시오!';
             }
 
-            // 인사말 세팅
             document.getElementById('greeting-text').innerHTML = `<span class="text-blue-600">${user.name} ${user.role}님</span>, ${timeMsg}`;
 
-            // 드롭다운 메뉴 안의 체크 표시(V) 업데이트
             document.querySelectorAll('[id^="check-"]').forEach(el => el.classList.remove('opacity-100'));
             document.querySelectorAll('[id^="check-"]').forEach(el => el.classList.add('opacity-0'));
             document.getElementById(`check-${currentUserId}`).classList.remove('opacity-0');
             document.getElementById(`check-${currentUserId}`).classList.add('opacity-100');
         }
 
-        // 사용자 변경 (버튼 클릭 시)
         function setUser(userId) {
             localStorage.setItem('tourmaker_portal_user', userId);
             updateGreeting();
-            document.getElementById('user-menu').classList.add('hidden'); // 드롭다운 닫기
+            document.getElementById('user-menu').classList.add('hidden');
         }
 
-        // 드롭다운 메뉴 열기/닫기
         document.getElementById('user-menu-btn').addEventListener('click', function() {
             document.getElementById('user-menu').classList.toggle('hidden');
         });
 
-        // 화면 다른 곳 클릭 시 드롭다운 닫기
         document.addEventListener('click', function(event) {
             const container = document.getElementById('user-menu-container');
             if (!container.contains(event.target)) {
@@ -416,25 +373,17 @@
             }
         });
 
-
-        // ==========================================
-        // ★ 3. 페이지 로딩 시 초기 실행 설정 ★
-        // ==========================================
         window.onload = function() {
-            // 이미 로그인된 상태인지 확인
             if (sessionStorage.getItem('tourmaker_portal_auth') === 'granted') {
                 document.getElementById('login-screen').classList.add('hidden');
                 document.getElementById('main-portal').classList.remove('hidden');
                 document.getElementById('main-portal').classList.add('flex');
             } else {
-                // 로그인 창에 포커스 자동 주기
                 document.getElementById('portal-password').focus();
             }
-            
-            // 사용자 프로필 로딩
+
             updateGreeting();
         };
-
     </script>
 </body>
 </html>
